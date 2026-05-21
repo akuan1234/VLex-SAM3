@@ -1,0 +1,6 @@
+road,lane markings
+building,house
+grass,grassy field
+tree,forest,tree canopy,dense forest,clustered treetops
+car,compact car
+clutter

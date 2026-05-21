@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+
+# Large local assets
+data/
+weights/*
+!weights/README.md
+!weights/sam3/
+weights/sam3/*
+!weights/sam3/README.md
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Runtime outputs
+work_dirs/
+work_logs/
+show_dir/
+outputs/
+resources/*
+!resources/README.md
+results.xlsx
+configs/generated/
+
+# Local/editor files
+.idea/
+.vscode/
+.DS_Store

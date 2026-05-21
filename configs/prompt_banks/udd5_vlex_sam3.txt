@@ -1,0 +1,5 @@
+vegetation,tree canopy,canopy shadow,clustered treetops,dense foliage
+building,house,flat rooftop,building facade,structural block
+road,linear pavement strip,rectangular pavement block,asphalt road,paved road
+vehicle,compact car,red car,car line-up,red vehicle
+miscellaneous surface,bare ground,shingled surface,outdoor sports area,shadow area

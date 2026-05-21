@@ -1,0 +1,7 @@
+background
+building,pitched roof,house
+road,lane markings,linear pavement
+car,white car,parked car,parked cars,red car
+tree,tree canopy,dense foliage,clustered treetops,dense forest
+vegetation,green vegetation,grassy vegetation,shrub cover,low vegetation cover
+human,pedestrian,small pedestrian,human figures

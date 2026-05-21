@@ -1,0 +1,9 @@
+background
+bareland,barren,soil
+grass,grassy field,grassy terrain
+pavement
+road,lane marking
+tree,forest,tree canopy
+water,river,water surface
+cropland,farmland
+building,roof,house,pale roof,flat rooftop

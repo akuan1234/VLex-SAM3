@@ -1,0 +1,7 @@
+background
+building,house
+road,lane markings,linear pavement
+water,water surface,water surface texture
+barren,soil,barren land
+forest,tree,tree canopy,clustered treetops,dense forest
+agricultural,farmland

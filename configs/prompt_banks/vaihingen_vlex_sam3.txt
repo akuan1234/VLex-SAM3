@@ -1,0 +1,6 @@
+road,lane markings,linear pavement
+building,house,flat building rooftop
+grass,grassy field,grassy lawn
+tree,tree canopy,clustered treetops
+car,parked car,compact car
+clutter,construction waste
