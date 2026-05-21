@@ -12,6 +12,8 @@ VLex-SAM3 keeps SAM3 frozen and improves open-vocabulary remote-sensing segmenta
 - Lexical OR inference: responses from multiple noun phrases in the same class are aggregated by class-wise max.
 - FMRE: frozen SAM3 semantic, instance, and presence responses are consolidated with uncertainty-guided feature calibration.
 
+<img width="1282" height="821" alt="image" src="https://github.com/user-attachments/assets/a306bdf6-2fd6-4348-989e-f4bf28758808" />
+
 ## Repository Layout
 
 ```text
@@ -25,7 +27,7 @@ eval.py                      MMSegmentation evaluation entry
 demo.py                      Single-image prediction helper
 ```
 
-SAM3 checkpoints, MLLM weights, and datasets are not included.
+SAM3 checkpoints, MLLM weights, and datasets are not included. The dataset can be found at [SegEarth-OV](https://github.com/likyoo/SegEarth-OV).
 
 ## Installation
 
@@ -106,21 +108,10 @@ The released configs already point to the final prompt banks in `configs/prompt_
 | VDD | 71.21 |
 | Average | 57.40 |
 
+<img width="643" height="842" alt="image" src="https://github.com/user-attachments/assets/e6ec963f-5e92-489a-a0d9-9067750952f7" />
+
 ## Lexical Expert Banks
 
 The final lexical expert banks used in the paper are released in `configs/prompt_banks/`.
 The NP generation and selection code is not included in this review release and will be open-sourced after the paper is accepted.
 `tools/run_generate_np_bank.sh` preserves the exact command template used to regenerate dataset-specific lexical banks once the generation code is released.
-
-## Citation
-
-```bibtex
-@article{vlexsam3,
-  title={VLex-SAM3: Visual Lexicalization for Training-Free Open-Vocabulary Remote Sensing Segmentation},
-  author={Anonymous},
-  journal={IEEE Transactions on Geoscience and Remote Sensing},
-  year={2026}
-}
-```
-
-Please update the BibTeX entry after publication.
