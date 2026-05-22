@@ -12,7 +12,8 @@ VLex-SAM3 keeps SAM3 frozen and improves open-vocabulary remote-sensing segmenta
 - Lexical OR inference: responses from multiple noun phrases in the same class are aggregated by class-wise max.
 - FMRE: frozen SAM3 semantic, instance, and presence responses are consolidated with uncertainty-guided feature calibration.
 
-<img width="1282" height="821" alt="image" src="https://github.com/user-attachments/assets/a306bdf6-2fd6-4348-989e-f4bf28758808" />
+<img width="1450" height="933" alt="image" src="https://github.com/user-attachments/assets/40401932-70dc-42ac-b363-6912fab5739b" />
+
 
 ## Repository Layout
 
