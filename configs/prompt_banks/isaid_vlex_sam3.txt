@@ -1,16 +1,16 @@
 background
-ship,cargo ship,ship deck
-storage tank,oil storage tank,circular storage tank
+ship,cargo ship,docked ship
+storage tank,circular storage tank,oil storage tank
 baseball diamond,baseball field,baseball infield,brown baseball diamond,diamond infield
 tennis court,blue tennis court,green tennis court
 basketball court,outdoor basketball court,basketball court lines
 running track,track field,oval running track
-bridge,bridge deck,road bridge
-large vehicle,bus,truck
-small vehicle,car,small vehicles
+bridge,road bridge,bridge deck
+large vehicle,bus,parked bus line
+small vehicle,car,parked car
 helicopter,helicopter rotor,helipad helicopter
 swimming pool,rectangular pool,blue swimming pool
-roundabout,traffic circle,central island
+roundabout,central island,traffic circle
 soccer field,soccer ball field,football field
-plane,airplane,jet aircraft,plane wing
-harbor,port,dock,harbor basin
+plane,airplane,jet aircraft,distant aircraft
+harbor,port,dock,robust harbor pillar

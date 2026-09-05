@@ -4,8 +4,12 @@ _base_ = './base_config.py'
 model = dict(
     classname_path='./configs/prompt_banks/potsdam_vlex_sam3.txt',
     prob_thd=0.1,
-    confidence_threshold=0.2,
+    confidence_threshold=0.25,
     bg_idx=5,
+    evaluation_class_names=[
+        'impervious_surface', 'building', 'low_vegetation', 'tree', 'car',
+        'clutter'
+    ],
 )
 
 # dataset settings

@@ -1,6 +1,6 @@
 road,lane markings
 building,house
-grass,grassy field
-tree,forest,tree canopy,dense forest,clustered treetops
-car,compact car
+grass,flat grass surface
+tree,forest,tree canopy,dense forest,tree canopy patch
+car,parked car
 clutter

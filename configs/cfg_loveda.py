@@ -5,6 +5,10 @@ model = dict(
     classname_path='./configs/prompt_banks/loveda_vlex_sam3.txt',
     confidence_threshold=0.5,
     prob_thd=0.5,
+    evaluation_class_names=[
+        'background', 'building', 'road', 'water', 'barren', 'forest',
+        'agricultural'
+    ],
 )
 
 # dataset settings

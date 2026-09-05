@@ -3,9 +3,12 @@ _base_ = './base_config.py'
 # model settings
 model = dict(
     classname_path='./configs/prompt_banks/udd5_vlex_sam3.txt',
-    confidence_threshold=0.5,
-    prob_thd=0.3,
+    confidence_threshold=0.6,
+    prob_thd=0.35,
     bg_idx=4,
+    evaluation_class_names=[
+        'vegetation', 'building', 'road', 'vehicle', 'other'
+    ],
 )
 
 # dataset settings

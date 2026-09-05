@@ -5,6 +5,9 @@ model = dict(
     classname_path='./configs/prompt_banks/vdd_vlex_sam3.txt',
     prob_thd=0.3,
     confidence_threshold=0.5,
+    evaluation_class_names=[
+        'other', 'wall', 'road', 'vegetation', 'vehicle', 'roof', 'water'
+    ],
 )
 
 # dataset settings

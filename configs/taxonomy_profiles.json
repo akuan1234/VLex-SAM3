@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "name": "remote_sensing_head_routing_v2",
+  "description": "Frozen dataset-name-independent policy for semantic/instance head arbitration.",
+  "routing_policy": {
+    "default_instance_prior": 1.0,
+    "residual_class_names": [
+      "background",
+      "other",
+      "miscellaneous surface",
+      "clutter"
+    ],
+    "compact_taxonomy_max_classes": 5,
+    "compact_residual_instance_prior": 0.0,
+    "expanded_residual_instance_prior": 1.0,
+    "road_rule": {
+      "class_names": [
+        "road"
+      ],
+      "requires_residual_class": true,
+      "instance_prior": 0.0,
+      "structured_instance_prior": 1.0,
+      "vertical_structure_evidence": {
+        "source": "lexical_bank_prompts",
+        "scope": "within_each_lexical_class",
+        "facade_terms": [
+          "facade"
+        ],
+        "roof_terms": [
+          "roof"
+        ],
+        "building_alias_terms": [
+          "building",
+          "house"
+        ],
+        "rule": "facade OR (roof AND NOT building_alias)"
+      }
+    }
+  }
+}

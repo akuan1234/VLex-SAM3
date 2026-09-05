@@ -2,7 +2,11 @@
 
 model = dict(
     type='VLexSAM3Segmentation',
-    model_type='VLex-SAM3'
+    model_type='VLex-SAM3',
+    taxonomy_path='./configs/taxonomy_profiles.json',
+    routing_mode='evidence_guarded',
+    semantic_support_kernel=7,
+    strict_taxonomy=True,
 )
 
 test_evaluator = dict(type='IoUMetric', iou_metrics=['mIoU'])

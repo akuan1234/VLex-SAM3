@@ -3,8 +3,14 @@ _base_ = './base_config.py'
 # model settings
 model = dict(
     classname_path='./configs/prompt_banks/isaid_vlex_sam3.txt',
-    prob_thd=0.6,
+    prob_thd=0.7,
     confidence_threshold=0.4,
+    evaluation_class_names=[
+        'background', 'ship', 'store_tank', 'baseball_diamond',
+        'tennis_court', 'basketball_court', 'Ground_Track_Field', 'Bridge',
+        'Large_Vehicle', 'Small_Vehicle', 'Helicopter', 'Swimming_pool',
+        'Roundabout', 'Soccer_ball_field', 'plane', 'Harbor'
+    ],
 )
 
 # dataset settings

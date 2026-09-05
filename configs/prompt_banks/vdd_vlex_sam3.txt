@@ -1,7 +1,7 @@
 background
-wall,building facade,exterior wall,wall surface,building wall
-road,lane markings,urban road,linear pavement
+wall,building facade,exterior wall,wall surface,concrete wall
+road,lane markings,urban road,paved road surface
 vegetation,green vegetation,tree canopy,dense foliage,dense forest
-vehicle,red car,yellow car,parked vehicle,white car
-roof,flat rooftop,tiled roof,roof surface,metal roof panels
+vehicle,red car,yellow car,parked vehicle,white parked car
+roof,flat rooftop,tiled roof,roof surface,segmented roof structure
 water,large water body,reflective water patch,water surface

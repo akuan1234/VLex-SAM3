@@ -137,8 +137,40 @@ class PotsdamDataset(BaseSegDataset):
 
 
 @DATASETS.register_module(force=True)
-class ISPRSDataset(PotsdamDataset):
-    """ISPRS Vaihingen protocol with the same six-class order as Potsdam."""
+class ISPRSDataset(BaseSegDataset):
+    """ISPRS Vaihingen protocol.
+
+    The official Vaihingen shards use 0 as ignore and 1..6 as the six
+    semantic classes.  This mirrors MMSegmentation's built-in
+    ``ISPRSDataset`` by reducing positive raw ids to zero-based train ids.
+    """
+
+    METAINFO = dict(
+        classes=(
+            'impervious_surface', 'building', 'low_vegetation', 'tree',
+            'car', 'clutter'
+        ),
+        palette=[
+            [255, 255, 255], [0, 0, 255], [0, 255, 255],
+            [0, 255, 0], [255, 255, 0], [255, 0, 0],
+        ],
+    )
+
+    def __init__(
+        self,
+        img_suffix='.png',
+        seg_map_suffix='.png',
+        reduce_zero_label=True,
+        ignore_index=255,
+        **kwargs,
+    ) -> None:
+        super().__init__(
+            img_suffix=img_suffix,
+            seg_map_suffix=seg_map_suffix,
+            reduce_zero_label=reduce_zero_label,
+            ignore_index=ignore_index,
+            **kwargs,
+        )
 
 
 @DATASETS.register_module(force=True)

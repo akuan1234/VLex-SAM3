@@ -4,9 +4,13 @@ _base_ = './base_config.py'
 model = dict(
     classname_path='./configs/prompt_banks/openearthmap_vlex_sam3.txt',
     prob_thd=0.05,
-    confidence_threshold=0.1,
+    confidence_threshold=0.05,
     slide_stride=512,
     slide_crop=512,
+    evaluation_class_names=[
+        'background', 'bareland', 'grass', 'pavement', 'road', 'tree',
+        'water', 'cropland', 'building'
+    ],
 )
 
 # dataset settings

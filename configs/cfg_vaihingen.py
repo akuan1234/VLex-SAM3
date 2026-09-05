@@ -5,7 +5,11 @@ model = dict(
     classname_path='./configs/prompt_banks/vaihingen_vlex_sam3.txt',
     prob_thd=0.0,
     bg_idx=5,
-    confidence_threshold=0.4,
+    confidence_threshold=0.5,
+    evaluation_class_names=[
+        'impervious_surface', 'building', 'low_vegetation', 'tree', 'car',
+        'clutter'
+    ],
 )
 
 # dataset settings
@@ -26,6 +30,8 @@ test_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         data_root=data_root,
+        # Raw Vaihingen masks use 0=ignore and 1..6=semantic classes.
+        reduce_zero_label=True,
         data_prefix=dict(
             img_path='img_dir/val',
             seg_map_path='ann_dir/val'),

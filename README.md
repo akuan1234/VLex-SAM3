@@ -2,7 +2,7 @@
 
 Official code release for **VLex-SAM3: Visual Lexicalization for Training-Free Open-Vocabulary Remote Sensing Segmentation**.
 
-VLex-SAM3 keeps SAM3 frozen and improves open-vocabulary remote-sensing segmentation from the text side. It builds a class-wise lexical expert bank from support image crops and uses frozen multi-source SAM3 responses during inference.
+VLex-SAM3 keeps SAM3 frozen and improves open-vocabulary remote-sensing segmentation through visual lexicalization and Frozen Multi-Source Response Enhancement (FMRE). It builds class-wise lexical expert banks from annotated support image crops. At inference, FMRE combines taxonomy- and evidence-aware routing, class-wise expert aggregation, and uncertainty-guided calibration of the frozen SAM3 responses.
 
 ## Highlights
 
@@ -10,7 +10,8 @@ VLex-SAM3 keeps SAM3 frozen and improves open-vocabulary remote-sensing segmenta
 - Data-grounded visual lexicalization: mask-highlighted support crops are described by a local MLLM as short noun phrases.
 - Lexical expert banks: class-semantic profile selection keeps compact, visually grounded prompts for each class.
 - Lexical OR inference: responses from multiple noun phrases in the same class are aggregated by class-wise max.
-- FMRE: frozen SAM3 semantic, instance, and presence responses are consolidated with uncertainty-guided feature calibration.
+- Taxonomy- and evidence-aware routing: a fixed class-semantic policy and semantic support regulate the positive instance residual.
+- FMRE: frozen SAM3 semantic, instance, and presence responses are consolidated, aggregated by class, and refined with uncertainty-guided feature calibration.
 
 <img width="1450" height="933" alt="image" src="https://github.com/user-attachments/assets/40401932-70dc-42ac-b363-6912fab5739b" />
 
@@ -20,12 +21,13 @@ VLex-SAM3 keeps SAM3 frozen and improves open-vocabulary remote-sensing segmenta
 ```text
 configs/                    Dataset configs and released lexical expert banks
 configs/prompt_banks/        Final VLex-SAM3 prompt banks used in the paper
+configs/taxonomy_profiles.json Fixed taxonomy-aware routing policy
+docs/reproducibility.md      Final settings and benchmark results
 sam3/                        Frozen SAM3 image-model code
-tools/run_generate_np_bank.sh Command template for lexical-bank generation
 vlex_sam3_segmentor.py       MMSegmentation segmentor wrapper
 custom_datasets.py           Dataset registrations for the eight benchmarks
 eval.py                      MMSegmentation evaluation entry
-demo.py                      Single-image prediction helper
+weights/                     Checkpoint placement instructions
 ```
 
 SAM3 checkpoints, MLLM weights, and datasets are not included. The dataset can be found at [SegEarth-OV](https://github.com/likyoo/SegEarth-OV).
@@ -81,6 +83,8 @@ Expected evaluation subfolders follow the configs:
 
 ## Evaluation
 
+Run the commands below from the repository root. Inference uses the released lexical expert banks and routing configuration; it does not require the MLLM or lexical-bank generation code.
+
 Run one benchmark:
 
 ```bash
@@ -93,26 +97,27 @@ Run distributed evaluation:
 bash dist_test.sh configs/cfg_loveda.py
 ```
 
-The released configs already point to the final prompt banks in `configs/prompt_banks/` and use the final `prob_thd` values.
+The released configs point to the final prompt banks in `configs/prompt_banks/` and specify both `prob_thd` and `confidence_threshold`. The shared configuration enables `routing_mode='evidence_guarded'` with `configs/taxonomy_profiles.json`. See [Reproducibility Notes](docs/reproducibility.md) for dataset settings and label conventions.
 
 ## Reported Results
 
 | Dataset | mIoU |
 | --- | ---: |
-| OpenEarthMap | 44.29 |
-| LoveDA | 48.52 |
-| iSAID | 37.78 |
-| Potsdam | 58.47 |
-| Vaihingen | 63.87 |
-| UAVid | 60.61 |
-| UDD5 | 74.41 |
-| VDD | 71.21 |
-| Average | 57.40 |
+| OpenEarthMap | 46.8 |
+| LoveDA | 48.4 |
+| iSAID | 39.9 |
+| Potsdam | 57.8 |
+| Vaihingen | 63.8 |
+| UAVid | 60.7 |
+| UDD5 | 74.6 |
+| VDD | 70.9 |
+| Average | 57.9 |
+
+Results are mIoU (%) and match Table I of the revised manuscript. Dataset scores are reported to one decimal place. Average is the arithmetic mean of the eight displayed dataset scores, rounded to one decimal place.
 
 <img width="643" height="842" alt="image" src="https://github.com/user-attachments/assets/e6ec963f-5e92-489a-a0d9-9067750952f7" />
 
 ## Lexical Expert Banks
 
 The final lexical expert banks used in the paper are released in `configs/prompt_banks/`.
-The NP generation and selection code is not included in this review release and will be open-sourced after the paper is accepted.
-`tools/run_generate_np_bank.sh` preserves the exact command template used to regenerate dataset-specific lexical banks once the generation code is released.
+The offline noun-phrase generation and selection code, together with the support-crop construction and replay materials, will be released after the paper is accepted. The current release supports evaluation with the supplied banks and `configs/taxonomy_profiles.json`.

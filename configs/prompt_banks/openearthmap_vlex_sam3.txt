@@ -1,9 +1,9 @@
 background
-bareland,barren,soil
-grass,grassy field,grassy terrain
-pavement
-road,lane marking
+bareland,barren,barren land
+grass,narrow grass strip,grassy terrain
+pavement,asphalt surface,linear asphalt path
+road,road with lane markings
 tree,forest,tree canopy
 water,river,water surface
-cropland,farmland
-building,roof,house,pale roof,flat rooftop
+cropland,farmland,linear crop rows,linear furrow pattern
+building,roof,house,rectangular roof section,clustered roof segments

@@ -4,7 +4,11 @@ _base_ = './base_config.py'
 model = dict(
     classname_path='./configs/prompt_banks/uavid_vlex_sam3.txt',
     prob_thd=0.3,
-    confidence_threshold=0.3,
+    confidence_threshold=0.2,
+    evaluation_class_names=[
+        'background', 'building', 'road', 'car', 'tree', 'vegetation',
+        'human'
+    ],
 )
 
 # dataset settings
