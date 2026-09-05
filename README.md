@@ -115,7 +115,8 @@ The released configs point to the final prompt banks in `configs/prompt_banks/` 
 
 Results are mIoU (%) and match Table I of the revised manuscript. Dataset scores are reported to one decimal place. Average is the arithmetic mean of the eight displayed dataset scores, rounded to one decimal place.
 
-<img width="643" height="842" alt="image" src="https://github.com/user-attachments/assets/e6ec963f-5e92-489a-a0d9-9067750952f7" />
+<img width="706" height="884" alt="image" src="https://github.com/user-attachments/assets/0fbbb324-f57e-4c03-add4-829343bbfccd" />
+
 
 ## Lexical Expert Banks
 
